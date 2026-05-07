@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Kensington Cigar Shop | Premium Cuban Cigars in London</title>
+  <meta name="description" content="The Kensington Cigar Shop — London's finest Cuban cigar specialist since 1987. Located at 148 Kensington Church St, London W8 4BN. Visit us or chat on WhatsApp."/>
+  <meta name="keywords" content="Cuban cigars London, premium cigars Kensington, cigar shop London, Cohiba London, Montecristo London"/>
+  <meta property="og:title" content="The Kensington Cigar Shop | Premium Cuban Cigars in London"/>
+  <meta property="og:description" content="London's finest Cuban cigar specialist since 1987. 148 Kensington Church St, London W8 4BN."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet"/>
+
+  <style>
+  /* ═══════════════════════════════════════════
+     TOKENS
+  ═══════════════════════════════════════════ */
+  :root{
+    --ink:       #07050300;
+    --bg:        #080604;
+    --bg2:       #0d0a07;
+    --bg3:       #111009;
+    --gold:      #c9a84c;
+    --gold2:     #e8c97a;
+    --gold3:     #8a6828;
+    --gold-glow: rgba(201,168,76,.18);
+    --cream:     #ede8df;
+    --cream2:    #b0a898;
+    --cream3:    #6e685e;
+    --border:    rgba(201,168,76,.14);
+    --border2:   rgba(201,168,76,.35);
+
+    --fd: 'Cinzel', serif;
+    --fdd:'Cinzel Decorative', serif;
+    --fb: 'Cormorant Garamond', serif;
+    --fi: 'IM Fell English', serif;
+  }
+
+  /* ═══════════════════════════════════════════
+     RESET
+  ═══════════════════════════════════════════ */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;font-size:16px}
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:var(--fb);
+    font-size:1.125rem;
+    line-height:1.75;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  a{text-decoration:none;color:inherit}
+  ul{list-style:none}
+
+  /* ═══════════════════════════════════════════
+     GRAIN + CURSOR
+  ═══════════════════════════════════════════ */
+  body::before{
+    content:'';
+    position:fixed;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity:.035;pointer-events:none;z-index:9999
+  }
+
+  /* ═══════════════════════════════════════════
+     CUSTOM CURSOR (desktop only)
+  ═══════════════════════════════════════════ */
+  @media(hover:hover){
+    *{cursor:none!important}
+    #cursor{
+      position:fixed;width:10px;height:10px;
+      background:var(--gold);border-radius:50%;
+      pointer-events:none;z-index:10000;
+      transform:translate(-50%,-50%);
+      transition:width .3s,height .3s,background .3s,opacity .3s;
+      mix-blend-mode:screen;
+    }
+    #cursor-ring{
+      position:fixed;width:38px;height:38px;
+      border:1px solid rgba(201,168,76,.5);border-radius:50%;
+      pointer-events:none;z-index:10000;
+      transform:translate(-50%,-50%);
+      transition:width .5s cubic-bezier(.22,1,.36,1),
+                  height .5s cubic-bezier(.22,1,.36,1),
+                  transform .08s linear,
+                  opacity .3s;
+    }
+    body:has(a:hover) #cursor{ width:6px;height:6px }
+    body:has(a:hover) #cursor-ring{ width:56px;height:56px;border-color:var(--gold) }
+  }
+
+  /* ═══════════════════════════════════════════
+     UTILS
+  ═══════════════════════════════════════════ */
+  .ornament{
+    display:flex;align-items:center;gap:1rem;
+    justify-content:center;margin-bottom:1.5rem;
+  }
+  .ornament span{flex:1;max-width:60px;height:1px;background:linear-gradient(to right,transparent,var(--gold3))}
+  .ornament span:last-child{background:linear-gradient(to left,transparent,var(--gold3))}
+  .ornament em{
+    font-family:var(--fd);font-style:normal;
+    font-size:.5rem;letter-spacing:.35em;
+    text-transform:uppercase;color:var(--gold)
+  }
+
+  .section-title{
+    font-family:var(--fd);
+    font-size:clamp(1.5rem,3.5vw,2.6rem);
+    font-weight:400;letter-spacing:.12em;
+    color:var(--cream);line-height:1.2;
+    margin-bottom:.8rem;
+  }
+  .section-sub{
+    font-family:var(--fi);font-style:italic;
+    font-size:clamp(.95rem,1.5vw,1.15rem);
+    color:var(--cream2);
+  }
+
+  /* ═══════════════════════════════════════════
+     LOADING SCREEN
+  ═══════════════════════════════════════════ */
+  #loader{
+    position:fixed;inset:0;z-index:8000;
+    background:var(--bg);
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:2rem;
+    transition:opacity .8s ease, visibility .8s ease;
+  }
+  #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+  .loader-logo{
+    font-family:var(--fdd);
+    font-size:clamp(1rem,3vw,1.6rem);
+    letter-spacing:.2em;
+    color:var(--gold);
+    text-align:center;
+    animation:loaderPulse 2s ease-in-out infinite;
+  }
+  @keyframes loaderPulse{0%,100%{opacity:.4}50%{opacity:1}}
+  .loader-bar-wrap{width:200px;height:1px;background:rgba(201,168,76,.15);overflow:hidden}
+  .loader-bar{height:100%;background:var(--gold);animation:loadBar 1.8s cubic-bezier(.22,1,.36,1) forwards}
+  @keyframes loadBar{from{width:0}to{width:100%}}
+
+  /* ═══════════════════════════════════════════
+     HEADER
+  ═══════════════════════════════════════════ */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:500;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.4rem clamp(1.2rem,5vw,4rem);
+    transition:background .5s,border-color .5s,padding .4s;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(8,6,4,.92);
+    backdrop-filter:blur(12px);
+    border-color:var(--border);
+    padding-top:1rem;padding-bottom:1rem;
+  }
+
+  /* top gold line */
+  header::before{
+    content:'';
+    position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--gold3),transparent);
+  }
+
+  .logo-wrap{display:flex;flex-direction:column;line-height:1}
+  .logo-est{
+    font-family:var(--fd);font-size:.48rem;
+    letter-spacing:.35em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:.4rem;
+  }
+  .logo-main{
+    font-family:var(--fdd);
+    font-size:clamp(.72rem,1.8vw,1rem);
+    letter-spacing:.12em;color:var(--cream);
+    text-shadow:0 0 40px rgba(201,168,76,.3);
+  }
+
+  /* hamburger */
+  .ham{
+    display:none;flex-direction:column;gap:5px;
+    background:none;border:none;cursor:pointer;padding:4px;
+  }
+  .ham span{
+    display:block;width:26px;height:1px;
+    background:var(--gold);
+    transition:transform .35s,opacity .35s,width .35s;
+  }
+  .ham.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .ham.open span:nth-child(2){opacity:0;width:0}
+  .ham.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+  nav.main-nav{
+    display:flex;gap:2.5rem;align-items:center;
+  }
+  nav.main-nav a{
+    font-family:var(--fd);font-size:.52rem;
+    letter-spacing:.28em;text-transform:uppercase;
+    color:var(--cream2);position:relative;
+    padding-bottom:3px;
+    transition:color .3s;
+  }
+  nav.main-nav a::after{
+    content:'';position:absolute;left:50%;bottom:0;
+    width:0;height:1px;background:var(--gold);
+    transform:translateX(-50%);
+    transition:width .4s ease;
+  }
+  nav.main-nav a:hover{color:var(--gold2)}
+  nav.main-nav a:hover::after{width:100%}
+
+  /* mobile nav */
+  @media(max-width:768px){
+    .ham{display:flex}
+    nav.main-nav{
+      position:fixed;inset:0;top:0;
+      flex-direction:column;gap:2.5rem;
+      background:rgba(8,6,4,.97);
+      backdrop-filter:blur(20px);
+      justify-content:center;align-items:center;
+      opacity:0;pointer-events:none;
+      transition:opacity .4s ease;
+      z-index:490;
+    }
+    nav.main-nav.open{opacity:1;pointer-events:all}
+    nav.main-nav a{font-size:.75rem;letter-spacing:.35em}
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════ */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:grid;place-items:center;
+    overflow:hidden;
+  }
+
+  .hero-bg{
+    position:absolute;inset:0;
+  }
+  .hero-bg img{
+    filter:brightness(.28) saturate(.6) sepia(.3);
+    transform:scale(1.06);
+    animation:hZoom 22s ease-in-out infinite alternate;
+  }
+  @keyframes hZoom{from{transform:scale(1.06)}to{transform:scale(1.14)}}
+
+  /* layered overlays */
+  .hero-bg::before{
+    content:'';position:absolute;inset:0;z-index:1;
+    background:
+      radial-gradient(ellipse 90% 80% at 50% 40%,transparent 20%,rgba(8,6,4,.8) 100%),
+      linear-gradient(to bottom,rgba(8,6,4,.6) 0%,transparent 30%,transparent 55%,rgba(8,6,4,1) 100%);
+  }
+  /* ambient gold glow */
+  .hero-bg::after{
+    content:'';position:absolute;inset:0;z-index:2;
+    background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(201,168,76,.06) 0%,transparent 70%);
+  }
+
+  .hero-content{
+    position:relative;z-index:10;
+    text-align:center;
+    padding:clamp(6rem,15vw,10rem) clamp(1.2rem,6vw,3rem) clamp(5rem,10vw,8rem);
+    max-width:860px;
+    width:100%;
+  }
+
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:.75rem;
+    border:1px solid var(--border);
+    padding:.6rem 1.4rem;
+    margin-bottom:2.5rem;
+    background:rgba(201,168,76,.04);
+    backdrop-filter:blur(6px);
+    animation:fadeUp 1s .1s both;
+  }
+  .hero-badge-dot{
+    width:5px;height:5px;border-radius:50%;
+    background:var(--gold);
+    animation:blink 2s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:.4}50%{opacity:1}}
+  .hero-badge span{
+    font-family:var(--fd);font-size:.5rem;
+    letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  .hero-title{
+    font-family:var(--fdd);
+    font-size:clamp(2rem,6.5vw,5rem);
+    font-weight:400;
+    line-height:1.12;
+    color:var(--cream);
+    letter-spacing:.04em;
+    margin-bottom:1.6rem;
+    animation:fadeUp 1s .25s both;
+  }
+  .hero-title em{
+    font-style:italic;
+    font-family:'Cinzel Decorative',serif;
+    background:linear-gradient(135deg,var(--gold2),var(--gold),var(--gold3));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  .hero-sub{
+    font-family:var(--fi);font-style:italic;
+    font-size:clamp(1rem,2vw,1.25rem);
+    color:var(--cream2);
+    max-width:540px;margin:0 auto 3rem;
+    line-height:1.8;
+    animation:fadeUp 1s .4s both;
+  }
+
+  .hero-ctas{
+    display:flex;align-items:center;justify-content:center;
+    gap:1.2rem;flex-wrap:wrap;
+    animation:fadeUp 1s .55s both;
+  }
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+  /* primary button */
+  .btn-p{
+    position:relative;overflow:hidden;
+    display:inline-flex;align-items:center;gap:.8rem;
+    font-family:var(--fd);font-size:.55rem;
+    letter-spacing:.3em;text-transform:uppercase;
+    color:var(--bg);background:var(--gold);
+    border:1px solid var(--gold);
+    padding:1.1rem 2.8rem;
+    transition:letter-spacing .35s;
+  }
+  .btn-p::before{
+    content:'';position:absolute;inset:0;
+    background:var(--gold2);
+    transform:translateX(-100%) skewX(-8deg);
+    transition:transform .5s cubic-bezier(.22,1,.36,1);
+  }
+  .btn-p:hover::before{transform:translateX(0) skewX(-8deg)}
+  .btn-p:hover{letter-spacing:.38em}
+  .btn-p > *{position:relative;z-index:1}
+
+  /* ghost button */
+  .btn-g{
+    display:inline-flex;align-items:center;gap:.8rem;
+    font-family:var(--fd);font-size:.55rem;
+    letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);
+    border:1px solid rgba(201,168,76,.35);
+    padding:1.1rem 2.4rem;
+    transition:background .35s,border-color .35s,color .35s;
+  }
+  .btn-g:hover{
+    background:rgba(201,168,76,.08);
+    border-color:var(--gold);
+  }
+
+  /* scroll indicator */
+  .scroll-ind{
+    position:absolute;bottom:2.5rem;left:50%;
+    transform:translateX(-50%);
+    display:flex;flex-direction:column;
+    align-items:center;gap:.5rem;
+    opacity:.4;animation:fadeUp 1s .8s both;
+  }
+  .scroll-ind p{
+    font-family:var(--fd);font-size:.42rem;
+    letter-spacing:.35em;text-transform:uppercase;color:var(--cream2)
+  }
+  .scroll-track{
+    width:1px;height:50px;
+    background:linear-gradient(to bottom,var(--gold3),transparent);
+    position:relative;overflow:hidden;
+  }
+  .scroll-track::after{
+    content:'';position:absolute;top:-100%;left:0;
+    width:100%;height:100%;
+    background:var(--gold);
+    animation:scrollDrop 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollDrop{0%{top:-100%}80%{top:100%}100%{top:100%}}
+
+  /* ═══════════════════════════════════════════
+     MARQUEE STRIP
+  ═══════════════════════════════════════════ */
+  .marquee-wrap{
+    overflow:hidden;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:var(--bg2);
+    padding:.9rem 0;
+  }
+  .marquee-track{
+    display:flex;gap:0;
+    animation:marquee 28s linear infinite;
+    width:max-content;
+  }
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee-item{
+    display:flex;align-items:center;gap:1.8rem;
+    padding:0 2rem;white-space:nowrap;
+  }
+  .marquee-item span{
+    font-family:var(--fd);font-size:.5rem;
+    letter-spacing:.28em;text-transform:uppercase;
+    color:var(--cream3);
+  }
+  .marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--gold3);flex-shrink:0}
+
+  /* ═══════════════════════════════════════════
+     HERITAGE NUMBERS
+  ═══════════════════════════════════════════ */
+  .heritage{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-bottom:1px solid var(--border);
+  }
+  .her-item{
+    text-align:center;
+    padding:clamp(2rem,5vw,4rem) 1rem;
+    border-right:1px solid var(--border);
+    position:relative;overflow:hidden;
+    transition:background .4s;
+  }
+  .her-item:last-child{border-right:none}
+  .her-item::before{
+    content:'';position:absolute;
+    bottom:0;left:50%;transform:translateX(-50%);
+    width:0;height:1px;background:var(--gold);
+    transition:width .5s ease;
+  }
+  .her-item:hover::before{width:60%}
+  .her-item:hover{background:rgba(201,168,76,.03)}
+  .her-num{
+    font-family:var(--fdd);
+    font-size:clamp(2rem,4vw,3.5rem);
+    color:var(--gold);font-weight:400;
+    line-height:1;margin-bottom:.5rem;
+    background:linear-gradient(135deg,var(--gold2),var(--gold));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .her-lbl{
+    font-family:var(--fd);font-size:.48rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--cream3)
+  }
+
+  @media(max-width:600px){
+    .heritage{grid-template-columns:repeat(2,1fr)}
+    .her-item:nth-child(2){border-right:none}
+    .her-item:nth-child(3){border-top:1px solid var(--border)}
+    .her-item:nth-child(4){border-top:1px solid var(--border);border-right:none}
+  }
+
+  /* ═══════════════════════════════════════════
+     COLLECTION
+  ═══════════════════════════════════════════ */
+  .collection{
+    padding:clamp(4rem,8vw,8rem) clamp(1.2rem,5vw,4rem);
+    max-width:1340px;margin:0 auto;
+  }
+  .collection .section-header{text-align:center;margin-bottom:clamp(3rem,5vw,5rem)}
+
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+  }
+  @media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid-3{grid-template-columns:1fr}}
+
+  .prod-card{
+    background:var(--bg2);
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:background .4s;
+    group:hover;
+  }
+  .prod-card::after{
+    content:'';
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 100%,rgba(201,168,76,.07) 0%,transparent 70%);
+    opacity:0;transition:opacity .5s;pointer-events:none;
+  }
+  .prod-card:hover::after{opacity:1}
+  .prod-card:hover{background:var(--bg3)}
+
+  .prod-img{
+    position:relative;
+    aspect-ratio:3/2;overflow:hidden;
+    flex-shrink:0;
+  }
+  .prod-img img{
+    filter:brightness(.72) saturate(.55) sepia(.2);
+    transition:transform .8s cubic-bezier(.22,1,.36,1),filter .6s;
+  }
+  .prod-card:hover .prod-img img{
+    transform:scale(1.08);
+    filter:brightness(.85) saturate(.7) sepia(.1);
+  }
+
+  /* corner brackets */
+  .prod-img::before,.prod-img::after{
+    content:'';position:absolute;
+    width:24px;height:24px;z-index:3;
+    opacity:0;transition:opacity .4s;
+  }
+  .prod-img::before{
+    top:12px;left:12px;
+    border-top:1px solid var(--gold);
+    border-left:1px solid var(--gold);
+  }
+  .prod-img::after{
+    bottom:12px;right:12px;
+    border-bottom:1px solid var(--gold);
+    border-right:1px solid var(--gold);
+  }
+  .prod-card:hover .prod-img::before,
+  .prod-card:hover .prod-img::after{opacity:1}
+
+  .prod-tag{
+    position:absolute;top:14px;right:14px;z-index:4;
+    font-family:var(--fd);font-size:.44rem;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);
+    border:1px solid rgba(201,168,76,.45);
+    padding:.3rem .7rem;
+    background:rgba(8,6,4,.75);
+    backdrop-filter:blur(4px);
+  }
+
+  .prod-num{
+    position:absolute;bottom:14px;left:14px;z-index:4;
+    font-family:var(--fdd);font-size:3.5rem;
+    color:rgba(201,168,76,.06);line-height:1;
+    font-weight:700;pointer-events:none;
+    transition:color .4s;
+  }
+  .prod-card:hover .prod-num{color:rgba(201,168,76,.12)}
+
+  .prod-body{padding:clamp(1.2rem,2.5vw,1.8rem);flex:1;border-top:1px solid var(--border)}
+  .prod-origin{
+    font-family:var(--fd);font-size:.46rem;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:.6rem;
+  }
+  .prod-name{
+    font-family:var(--fd);
+    font-size:clamp(1rem,1.8vw,1.2rem);
+    letter-spacing:.06em;color:var(--cream);
+    font-weight:500;margin-bottom:.8rem;
+  }
+  .prod-desc{
+    font-family:var(--fi);font-style:italic;
+    font-size:clamp(.88rem,1.2vw,1rem);
+    color:var(--cream2);line-height:1.7;
+  }
+  .prod-footer{
+    display:flex;align-items:center;
+    justify-content:space-between;
+    padding:.9rem clamp(1.2rem,2.5vw,1.8rem) 1.4rem;
+    border-top:1px solid rgba(201,168,76,.07);
+  }
+  .prod-vitola{
+    font-family:var(--fd);font-size:.44rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--cream3)
+  }
+  .prod-arrow{
+    width:30px;height:30px;
+    border:1px solid var(--border);
+    display:grid;place-items:center;
+    color:var(--gold);
+    transition:background .3s,border-color .3s,color .3s,transform .3s;
+  }
+  .prod-card:hover .prod-arrow{
+    background:var(--gold);border-color:var(--gold);
+    color:var(--bg);transform:rotate(45deg);
+  }
+
+  /* ═══════════════════════════════════════════
+     FULL-WIDTH QUOTE
+  ═══════════════════════════════════════════ */
+  .quote-sec{
+    position:relative;overflow:hidden;
+    padding:clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,5rem);
+    text-align:center;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .quote-sec-bg{
+    position:absolute;inset:0;
+  }
+  .quote-sec-bg img{
+    filter:brightness(.15) saturate(.3) sepia(.5);
+  }
+  .quote-sec-bg::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to bottom,var(--bg) 0%,rgba(8,6,4,.85) 50%,var(--bg) 100%);
+  }
+  .quote-content{position:relative;z-index:2;max-width:780px;margin:0 auto}
+  .quote-mark{
+    font-family:var(--fdd);font-size:8rem;
+    color:var(--gold);line-height:.6;
+    opacity:.25;margin-bottom:1rem;
+    display:block;
+  }
+  .quote-text{
+    font-family:var(--fi);font-style:italic;
+    font-size:clamp(1.3rem,3vw,2rem);
+    color:var(--cream);
+    line-height:1.6;letter-spacing:.02em;
+    margin-bottom:1.8rem;
+  }
+  .quote-attr{
+    font-family:var(--fd);font-size:.5rem;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--gold)
+  }
+
+  /* ═══════════════════════════════════════════
+     ABOUT (SPLIT)
+  ═══════════════════════════════════════════ */
+  .about{
+    display:grid;grid-template-columns:1fr 1fr;
+    min-height:clamp(400px,60vw,600px);
+    border-bottom:1px solid var(--border);
+  }
+  @media(max-width:768px){
+    .about{grid-template-columns:1fr}
+  }
+  .about-img{position:relative;overflow:hidden;min-height:300px}
+  .about-img img{filter:brightness(.5) saturate(.5) sepia(.2)}
+  .about-img::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(201,168,76,.08) 0%,transparent 60%),
+               linear-gradient(to right,transparent 60%,rgba(8,6,4,.9) 100%);
+  }
+  /* floating label */
+  .about-img-label{
+    position:absolute;bottom:2rem;left:2rem;z-index:2;
+    writing-mode:vertical-rl;
+    font-family:var(--fd);font-size:.46rem;
+    letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);opacity:.6;
+  }
+  .about-text{
+    background:var(--bg2);
+    padding:clamp(3rem,6vw,5.5rem) clamp(2rem,5vw,4.5rem);
+    display:flex;flex-direction:column;justify-content:center;
+    border-left:1px solid var(--border);
+  }
+  @media(max-width:768px){.about-text{border-left:none;border-top:1px solid var(--border)}}
+  .about-text h2{
+    font-family:var(--fd);
+    font-size:clamp(1.4rem,2.8vw,2.2rem);
+    font-weight:400;letter-spacing:.1em;
+    color:var(--cream);margin-bottom:1.5rem;line-height:1.3;
+  }
+  .about-text p{
+    font-family:var(--fi);font-size:clamp(.95rem,1.4vw,1.1rem);
+    color:var(--cream2);font-style:italic;
+    line-height:1.85;margin-bottom:1.1rem;
+  }
+  .about-text p em{color:var(--gold2);font-style:italic}
+  .about-divider{
+    width:40px;height:1px;
+    background:linear-gradient(to right,var(--gold3),transparent);
+    margin:1.8rem 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     EXPERIENCE / LOUNGE CARDS
+  ═══════════════════════════════════════════ */
+  .experience{
+    padding:clamp(4rem,8vw,8rem) clamp(1.2rem,5vw,4rem);
+    max-width:1340px;margin:0 auto;
+  }
+  .experience .section-header{text-align:center;margin-bottom:clamp(3rem,5vw,5rem)}
+
+  .exp-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:clamp(1rem,2vw,1.5rem);
+  }
+  @media(max-width:768px){.exp-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
+  .exp-card{
+    border:1px solid var(--border);
+    padding:clamp(2rem,3vw,2.8rem) clamp(1.5rem,2.5vw,2.2rem);
+    position:relative;overflow:hidden;
+    transition:border-color .4s,background .4s;
+  }
+  .exp-card:hover{
+    border-color:var(--border2);
+    background:rgba(201,168,76,.03);
+  }
+  .exp-card::before{
+    content:'';position:absolute;
+    top:0;left:0;width:2px;height:0;
+    background:var(--gold);
+    transition:height .5s cubic-bezier(.22,1,.36,1);
+  }
+  .exp-card:hover::before{height:100%}
+  .exp-icon{
+    width:48px;height:48px;
+    border:1px solid var(--border);
+    display:grid;place-items:center;
+    margin-bottom:1.5rem;
+    color:var(--gold);
+    transition:border-color .4s,background .4s;
+  }
+  .exp-card:hover .exp-icon{border-color:var(--gold3);background:rgba(201,168,76,.06)}
+  .exp-card h3{
+    font-family:var(--fd);
+    font-size:.75rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--cream);
+    margin-bottom:.8rem;
+  }
+  .exp-card p{
+    font-family:var(--fi);font-style:italic;
+    font-size:.95rem;color:var(--cream2);line-height:1.7;
+  }
+
+  /* ═══════════════════════════════════════════
+     WHATSAPP CTA
+  ═══════════════════════════════════════════ */
+  .wa-section{
+    position:relative;overflow:hidden;
+    padding:clamp(5rem,10vw,9rem) clamp(1.5rem,6vw,4rem);
+    text-align:center;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:var(--bg2);
+  }
+  /* grid pattern */
+  .wa-section::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);
+    background-size:50px 50px;
+  }
+  /* radial fade over grid */
+  .wa-section::after{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 70% 80% at 50% 50%,transparent 0%,var(--bg2) 100%);
+  }
+  .wa-inner{position:relative;z-index:2;max-width:680px;margin:0 auto}
+
+  .wa-ring{
+    width:80px;height:80px;border-radius:50%;
+    border:1px solid var(--border);
+    display:grid;place-items:center;
+    margin:0 auto 2.5rem;
+    position:relative;
+    background:rgba(201,168,76,.04);
+  }
+  .wa-ring::before{
+    content:'';position:absolute;
+    width:96px;height:96px;border-radius:50%;
+    border:1px solid rgba(201,168,76,.08);
+    animation:waPing 2.5s ease-in-out infinite;
+  }
+  @keyframes waPing{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:.2}}
+
+  .wa-section h2{
+    font-family:var(--fd);
+    font-size:clamp(1.4rem,3vw,2.4rem);
+    font-weight:400;letter-spacing:.1em;
+    color:var(--cream);margin-bottom:1rem;
+  }
+  .wa-section > .wa-inner > p{
+    font-family:var(--fi);font-style:italic;
+    font-size:clamp(1rem,1.6vw,1.2rem);
+    color:var(--cream2);margin-bottom:2.5rem;
+    line-height:1.75;
+  }
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:1rem;
+    font-family:var(--fd);font-size:.58rem;
+    letter-spacing:.28em;text-transform:uppercase;
+    color:var(--bg);background:var(--gold);
+    border:1px solid var(--gold);
+    padding:1.2rem 3rem;
+    position:relative;overflow:hidden;
+    transition:letter-spacing .35s;
+  }
+  .btn-wa::before{
+    content:'';position:absolute;inset:0;
+    background:var(--gold2);
+    transform:translateX(-100%) skewX(-8deg);
+    transition:transform .5s cubic-bezier(.22,1,.36,1);
+  }
+  .btn-wa:hover::before{transform:translateX(0) skewX(-8deg)}
+  .btn-wa:hover{letter-spacing:.36em}
+  .btn-wa > *{position:relative;z-index:1}
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════════ */
+  footer{
+    background:#050403;
+    border-top:1px solid var(--border);
+    padding:clamp(3rem,6vw,5rem) clamp(1.2rem,5vw,4rem) clamp(1.5rem,3vw,2.5rem);
+  }
+  /* gold top line */
+  footer::before{
+    content:'';display:block;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold3),var(--gold),var(--gold3),transparent);
+    margin-bottom:clamp(2.5rem,5vw,4rem);
+  }
+
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:clamp(2rem,4vw,3.5rem);
+    margin-bottom:clamp(2.5rem,5vw,4rem);
+    padding-bottom:clamp(2.5rem,5vw,4rem);
+    border-bottom:1px solid var(--border);
+  }
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+  @media(max-width:500px){.footer-grid{grid-template-columns:1fr}}
+
+  .f-logo{margin-bottom:1.2rem}
+  .f-brand p{
+    font-family:var(--fi);font-style:italic;
+    font-size:.92rem;color:var(--cream3);
+    line-height:1.75;max-width:260px;margin-bottom:1.5rem;
+  }
+  .f-brand address{
+    font-style:normal;
+    font-family:var(--fb);font-size:.88rem;
+    color:var(--cream3);line-height:1.9;
+  }
+  .f-brand address strong{
+    display:block;
+    font-family:var(--fd);font-size:.44rem;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:.4rem;
+  }
+
+  .f-col h4{
+    font-family:var(--fd);font-size:.48rem;
+    letter-spacing:.25em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1.2rem;
+  }
+  .f-col li{margin-bottom:.55rem}
+  .f-col a{
+    font-family:var(--fb);font-size:.9rem;
+    color:var(--cream3);
+    transition:color .3s,letter-spacing .3s;
+  }
+  .f-col a:hover{color:var(--gold2)}
+
+  .footer-bottom{
+    display:flex;align-items:center;
+    justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  }
+  .footer-bottom p,.footer-bottom a{
+    font-family:var(--fd);font-size:.42rem;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--cream3);opacity:.4;
+    transition:opacity .3s;
+  }
+  .footer-bottom a:hover{opacity:.8;color:var(--gold)}
+  .f-legal{display:flex;gap:1.6rem;flex-wrap:wrap}
+
+  /* ═══════════════════════════════════════════
+     SCROLL REVEAL
+  ═══════════════════════════════════════════ */
+  .reveal{
+    opacity:0;transform:translateY(30px);
+    transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+
+<body>
+
+<!-- CUSTOM CURSOR (desktop) -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-logo">The Kensington Cigar Shop</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- ═══════ HEADER ═══════ -->
+<header id="site-header">
+  <a href="#" class="logo-wrap" aria-label="The Kensington Cigar Shop — Home">
+    <span class="logo-est">Est. 1987 &nbsp;·&nbsp; Kensington, London</span>
+    <span class="logo-main">The Kensington Cigar Shop</span>
+  </a>
+
+  <button class="ham" id="hamBtn" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <a href="#collection" class="nav-link">Collection</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#experience" class="nav-link">Experience</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="hero-bg" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1558459654-c430be5b0a40?w=1920&q=85"
+      alt=""
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge" aria-hidden="true">
+      <span class="hero-badge-dot"></span>
+      <span>Kensington · London · Est. 1987</span>
+    </div>
+
+    <h1 class="hero-title" id="hero-h1">
+      Experience the Finest<br>
+      <em>Cuban Tradition</em><br>
+      in Kensington
+    </h1>
+
+    <p class="hero-sub">
+      A curated sanctuary where connoisseurs discover rare blends, master-rolled vitolas,
+      and the unhurried pleasure of a perfectly chosen cigar.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#collection" class="btn-p">
+        <span>Explore Collection</span>
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+          <path d="M8.5 1L13 5M13 5L8.5 9M13 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#contact" class="btn-g">
+        <span>Contact Us</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-ind" aria-hidden="true">
+    <p>Scroll</p>
+    <div class="scroll-track"></div>
+  </div>
+</section>
+
+<!-- ═══════ MARQUEE ═══════ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- duplicated for infinite loop -->
+    <div class="marquee-item"><span>Cohiba</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Montecristo</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Padrón 1926</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Arturo Fuente</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Romeo y Julieta</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Davidoff</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>H. Upmann</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Bolivar</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Cohiba</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Montecristo</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Padrón 1926</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Arturo Fuente</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Romeo y Julieta</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Davidoff</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>H. Upmann</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span>Bolivar</span><span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- ═══════ HERITAGE NUMBERS ═══════ -->
+<section class="heritage" aria-label="Our heritage">
+  <div class="her-item reveal"><p class="her-num">37+</p><p class="her-lbl">Years of Mastery</p></div>
+  <div class="her-item reveal"><p class="her-num">120</p><p class="her-lbl">Premium Blends</p></div>
+  <div class="her-item reveal"><p class="her-num">8</p><p class="her-lbl">Countries of Origin</p></div>
+  <div class="her-item reveal"><p class="her-num">4K+</p><p class="her-lbl">Satisfied Members</p></div>
+</section>
+
+<!-- ═══════ COLLECTION ═══════ -->
+<section class="collection" id="collection" aria-labelledby="col-h">
+  <div class="section-header reveal">
+    <div class="ornament"><span></span><em>The Collection</em><span></span></div>
+    <h2 class="section-title" id="col-h">Curated for the Discerning Palate</h2>
+    <p class="section-sub">Each cigar selected by our maestro — aged, inspected, and presented with reverence.</p>
+  </div>
+
+  <div class="grid-3">
+
+    <!-- Card 1 -->
+    <article class="prod-card reveal">
+      <div class="prod-img">
+        <span class="prod-tag">Cuba</span>
+        <span class="prod-num" aria-hidden="true">01</span>
+        <img
+          src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=80"
+          alt="Cohiba Siglo VI — premium Cuban cigar"
+          loading="lazy"
+        />
+      </div>
+      <div class="prod-body">
+        <p class="prod-origin">Habanos S.A. · Havana, Cuba</p>
+        <h3 class="prod-name">Cohiba Siglo VI</h3>
+        <p class="prod-desc">
+          The pinnacle of Havana's craft. Medium to full-bodied, with notes of dark chocolate,
+          cedar, and a lingering spiced earthiness that deepens magnificently with every draw.
+        </p>
+      </div>
+      <div class="prod-footer">
+        <span class="prod-vitola">Gran Corona · 58 Ring Gauge</span>
+        <div class="prod-arrow" aria-hidden="true">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+            <path d="M7 1L11 5M11 5L7 9M11 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="prod-card reveal">
+      <div class="prod-img">
+        <span class="prod-tag">Nicaragua</span>
+        <span class="prod-num" aria-hidden="true">02</span>
+        <img
+          src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=900&q=80"
+          alt="Padrón 1926 Serie No. 80"
+          loading="lazy"
+        />
+      </div>
+      <div class="prod-body">
+        <p class="prod-origin">Padrón Cigars · Estelí, Nicaragua</p>
+        <h3 class="prod-name">Padrón 1926 Serie No. 80</h3>
+        <p class="prod-desc">
+          Aged ten years minimum. This naturale masterpiece unfolds with waves of roasted coffee,
+          caramel, and a silken smoke that is nothing short of transformative.
+        </p>
+      </div>
+      <div class="prod-footer">
+        <span class="prod-vitola">Lonsdale · 54 Ring Gauge</span>
+        <div class="prod-arrow" aria-hidden="true">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+            <path d="M7 1L11 5M11 5L7 9M11 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="prod-card reveal">
+      <div class="prod-img">
+        <span class="prod-tag">Dominican Rep.</span>
+        <span class="prod-num" aria-hidden="true">03</span>
+        <img
+          src="https://images.unsplash.com/photo-1523676060187-f55f8f843a41?w=900&q=80"
+          alt="Arturo Fuente Opus X"
+          loading="lazy"
+        />
+      </div>
+      <div class="prod-body">
+        <p class="prod-origin">Arturo Fuente · La Romana</p>
+        <h3 class="prod-name">Arturo Fuente Opus X</h3>
+        <p class="prod-desc">
+          A fierce rarity grown entirely in the Dominican Republic. Bold and complex —
+          pepper, citrus rind, and a long floral finish that lingers with haunting elegance.
+        </p>
+      </div>
+      <div class="prod-footer">
+        <span class="prod-vitola">Double Corona · 52 Ring Gauge</span>
+        <div class="prod-arrow" aria-hidden="true">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+            <path d="M7 1L11 5M11 5L7 9M11 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════ QUOTE ═══════ -->
+<section class="quote-sec" aria-label="A word on craft">
+  <div class="quote-sec-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1572119865084-43c285814d63?w=1400&q=70" alt=""/>
+  </div>
+  <div class="quote-content reveal">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <p class="quote-text">
+      A great cigar is not merely smoked — it is experienced, like a fine wine or a passage of music.
+      It asks nothing of you but your full attention.
+    </p>
+    <p class="quote-attr">— The House Philosophy</p>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about" id="about" aria-labelledby="about-h">
+  <div class="about-img">
+    <img
+      src="https://images.unsplash.com/photo-1572119865084-43c285814d63?w=1200&q=80"
+      alt="Interior of The Kensington Cigar Shop — warm, club-like atmosphere"
+      loading="lazy"
+    />
+    <span class="about-img-label" aria-hidden="true">Kensington · London</span>
+  </div>
+  <div class="about-text">
+    <div class="ornament" style="justify-content:flex-start;margin-bottom:1.5rem">
+      <span style="max-width:40px"></span>
+      <em>Our Story</em>
+      <span style="max-width:40px;background:linear-gradient(to left,transparent,var(--gold3))"></span>
+    </div>
+    <h2 id="about-h" class="reveal">A Legacy of Distinction,<br>Rooted in Kensington</h2>
+    <div class="about-divider"></div>
+    <p class="reveal">
+      Founded in 1987 by a Cuban émigré with an uncompromising love for the leaf, our shop has been a quiet institution on <em>Kensington Church Street</em> for nearly four decades.
+    </p>
+    <p class="reveal">
+      We are not a catalogue. We are a conversation — between grower and smoker, between tradition and the pleasure of discovery. Every visit is an education.
+    </p>
+    <a href="#contact" class="btn-g reveal" style="margin-top:1.8rem">
+      <span>Meet Our Specialists</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ EXPERIENCE ═══════ -->
+<section class="experience" id="experience" aria-labelledby="exp-h">
+  <div class="section-header reveal">
+    <div class="ornament"><span></span><em>The Experience</em><span></span></div>
+    <h2 class="section-title" id="exp-h">More Than a Purchase</h2>
+    <p class="section-sub">We offer services befitting a true aficionado's lounge.</p>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card reveal">
+      <div class="exp-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <h3>Private Humidor Storage</h3>
+      <p>Your collection, maintained at perfect temperature and humidity in our climate-controlled vault, accessible at your convenience.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+        </svg>
+      </div>
+      <h3>Expert Pairing Tastings</h3>
+      <p>Guided sessions pairing rare cigars with aged single malts, vintage cognacs, or fine espressos — by appointment.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <h3>Members' Club</h3>
+      <p>Priority access to limited releases, first refusal on aged stock, and invitations to exclusive smoking evenings in our lounge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHATSAPP CTA ═══════ -->
+<section class="wa-section" id="contact" aria-labelledby="wa-h">
+  <div class="wa-inner reveal">
+    <div class="wa-ring" aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2C8.268 2 2 8.268 2 16c0 2.4.617 4.66 1.699 6.624L2 30l7.562-1.676A13.933 13.933 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" stroke="var(--gold)" stroke-width="1.2"/>
+        <path d="M22.002 18.897c-.31-.156-1.84-.908-2.124-1.012-.285-.104-.492-.156-.699.156-.207.312-.802 1.012-.984 1.22-.181.208-.363.234-.674.078-.31-.156-1.308-.482-2.491-1.539-.92-.822-1.542-1.837-1.723-2.147-.18-.312-.018-.48.136-.636.14-.14.31-.364.465-.546.156-.182.207-.312.31-.52.104-.208.052-.39-.026-.546-.078-.156-.699-1.685-.957-2.307-.252-.605-.509-.523-.7-.534l-.596-.01c-.207 0-.545.078-.83.39-.285.312-1.087 1.063-1.087 2.593s1.114 3.01 1.27 3.218c.155.208 2.194 3.35 5.317 4.698 3.123 1.347 3.123.897 3.685.841.56-.058 1.81-.74 2.067-1.457.258-.714.258-1.327.181-1.457-.077-.13-.285-.208-.596-.364z" fill="var(--gold)"/>
+      </svg>
+    </div>
+
+    <h2 id="wa-h">Have Questions or Want to Order?</h2>
+    <p>Chat directly with our cigar specialists — for personal recommendations, rare availability, or to book a private tasting in our Kensington lounge.</p>
+
+    <a
+      href="https://wa.me/447491050621"
+      class="btn-wa"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with our specialists on WhatsApp"
+    >
+      <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <path d="M16 2C8.268 2 2 8.268 2 16c0 2.4.617 4.66 1.699 6.624L2 30l7.562-1.676A13.933 13.933 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.2a11.14 11.14 0 01-5.59-1.518l-.4-.238-4.372.964 1.075-4.262-.26-.42A11.2 11.2 0 1116 27.2z"/>
+        <path d="M22.002 18.897c-.31-.156-1.84-.908-2.124-1.012-.285-.104-.492-.156-.699.156-.207.312-.802 1.012-.984 1.22-.181.208-.363.234-.674.078-.31-.156-1.308-.482-2.491-1.539-.92-.822-1.542-1.837-1.723-2.147-.18-.312-.018-.48.136-.636.14-.14.31-.364.465-.546.156-.182.207-.312.31-.52.104-.208.052-.39-.026-.546-.078-.156-.699-1.685-.957-2.307-.252-.605-.509-.523-.7-.534l-.596-.01c-.207 0-.545.078-.83.39-.285.312-1.087 1.063-1.087 2.593s1.114 3.01 1.27 3.218c.155.208 2.194 3.35 5.317 4.698 3.123 1.347 3.123.897 3.685.841.56-.058 1.81-.74 2.067-1.457.258-.714.258-1.327.181-1.457-.077-.13-.285-.208-.596-.364z"/>
+      </svg>
+      <span>Chat with Our Specialists</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="f-logo logo-wrap">
+        <span class="logo-est">Est. 1987 · London</span>
+        <span class="logo-main">The Kensington Cigar Shop</span>
+      </div>
+      <p>A private sanctuary for those who appreciate the unhurried art of a perfectly rolled cigar.</p>
+      <address>
+        <strong>Find Us</strong>
+        <a href="https://maps.google.com/?q=148+Kensington+Church+St,+London+W8+4BN"
+           target="_blank" rel="noopener noreferrer"
+           style="color:var(--cream3);border-bottom:1px solid var(--border);transition:color .3s"
+           onmouseover="this.style.color='var(--gold2)'"
+           onmouseout="this.style.color='var(--cream3)'">
+          148 Kensington Church St<br>
+          London W8 4BN<br>
+          United Kingdom
+        </a>
+      </address>
+    </div>
+
+    <nav class="f-col" aria-label="Collection links">
+      <h4>Collection</h4>
+      <ul>
+        <li><a href="#">Cuban Cigars</a></li>
+        <li><a href="#">Nicaraguan Blends</a></li>
+        <li><a href="#">Dominican Classics</a></li>
+        <li><a href="#">Limited Editions</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </nav>
+
+    <nav class="f-col" aria-label="Visit links">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#">About the Shop</a></li>
+        <li><a href="#">Members' Club</a></li>
+        <li><a href="#">Private Events</a></li>
+        <li><a href="#">Tasting Sessions</a></li>
+      </ul>
+    </nav>
+
+    <div class="f-col">
+      <h4>Opening Hours</h4>
+      <ul>
+        <li><a as="p">Mon – Fri · 10:00 – 19:00</a></li>
+        <li><a as="p">Saturday · 10:00 – 18:00</a></li>
+        <li><a as="p">Sunday · 12:00 – 16:00</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 The Kensington Cigar Shop · All Rights Reserved</p>
+    <nav class="f-legal" aria-label="Legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Age Verification</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ═══════ SCRIPTS ═══════ -->
+<script>
+  /* -- Loader -- */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+    }, 1900);
+  });
+
+  /* -- Sticky header -- */
+  const hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  /* -- Hamburger / mobile nav -- */
+  const hamBtn = document.getElementById('hamBtn');
+  const mainNav = document.getElementById('mainNav');
+  hamBtn.addEventListener('click', () => {
+    const isOpen = hamBtn.classList.toggle('open');
+    mainNav.classList.toggle('open', isOpen);
+    hamBtn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mainNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamBtn.classList.remove('open');
+      mainNav.classList.remove('open');
+      hamBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* -- Custom cursor (desktop only) -- */
+  const cur = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  if (cur && ring && window.matchMedia('(hover:hover)').matches) {
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const tick = () => {
+      cur.style.left  = mx + 'px'; cur.style.top  = my + 'px';
+      rx = lerp(rx, mx, .12);     ry = lerp(ry, my, .12);
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(tick);
+    };
+    tick();
+  } else {
+    if (cur)  cur.style.display  = 'none';
+    if (ring) ring.style.display = 'none';
+  }
+
+  /* -- Scroll reveal -- */
+  const revEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
